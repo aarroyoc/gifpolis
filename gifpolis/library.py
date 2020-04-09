@@ -32,7 +32,7 @@ class Library:
         c = self.db.cursor()
         if query:
             final_query = query + "*"
-            c.execute(self.sql["search"], final_query)
+            c.execute(self.sql["search"], [final_query])
         else:
             c.execute(self.sql["get-all"])
         

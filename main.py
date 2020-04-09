@@ -32,10 +32,14 @@ class App:
         self.current_rows = 0
         self.clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
         self.search_results = list()
+        self.window.set_size_request(500,600)
         self.window.show_all()
+        self.search()
 
     def copy_clipboard(self, widget):
         n = widget.get_children().index(widget.get_selected_children()[0])
+        file = self.search_results[n]
+        Gtk.show_uri_on_window(self.window, f"file://{file.path}", 0)
         # TODO GTK 4 para usar clipboard
 
     def get_data(self, clipboard, selection, info):

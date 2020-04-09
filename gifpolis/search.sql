@@ -1,2 +1,4 @@
 SELECT description,file
-FROM gifpolis;
+FROM gifpolis
+WHERE
+    description MATCH ?;
